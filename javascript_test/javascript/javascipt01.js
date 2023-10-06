@@ -1629,8 +1629,530 @@
 // let object = {x: 13,y: 8}
 // insertArray(array,object);
 
-let array1 = [1, 2, 3]
-let array2 = [4, 5, 6]
 
-let result = `${array1},${array2}`
-console.log(result)
+// 71.
+// Check if An Object is An Array
+// Example: Check Array Using Array.isArray()   // การเช็ค array
+// function checkArray(arr) {
+//     const result = Array.isArray(arr);
+//     if ( result ) {
+//         console.log(`${arr} is an array.`)
+//     }
+//     else {
+//         console.log(`${arr} is not an array.`)
+//     }
+// }
+// let array = [1,2,3,4]
+// checkArray(array)
+
+
+
+
+// 72.
+// Empty an Array
+// Example 1: Empty Array by Substituting New Array
+// function emptyArray(arr) {
+//     arr = [];
+//     return arr;
+// }
+// const array = [1, 2, 3]
+// console.log(array)
+// const result = emptyArray(array);
+// console.log(result)
+
+
+// Example 2: Empty Array Using splice()
+// function arraySplice (arr) {
+//     arr.splice(0,arr.length)
+//     return arr;
+// }
+// const array = [1,2,3]
+// console.log(array)
+// const result = arraySplice(array)
+// console.log(result)
+
+
+// Example 3: Empty Array by Setting Length 0
+// function arrayLe(arr) {
+//     arr.length = 0            // When setting array.length to 0, all the elements of the array are removed.
+//     return arr;
+// }
+// const array = [1,2,3]
+// console.log(array)
+// const result = arrayLe(array)
+// console.log(result)
+
+
+
+
+// 73
+// Add Element to Start of an Array
+// Example 1: Add Element to Array Using unshift()
+// function arrayunshift(arr) {
+//     arr.unshift(4);
+//     console.log(arr)
+// }
+// let array = [ 1,2,3]
+// arrayunshift(array)
+
+
+// Example 2: Add Element to Array Using splice()
+// function arrayAdd(arr) {
+//     arr.splice(0,0,4)
+//     console.log(arr)
+// }
+// let array = [1,2,3,5]
+// arrayAdd(array)
+
+// Example 3: Add Element to Array Using Spread Operator
+// function arraySpred(arr) {
+//     arr = [4,...arr]
+//     console.log(arr)
+// }
+// let array = [1,2,3]
+// arraySpred(array)
+
+
+// Example 4: Add Element to Array Using concat()
+// function arrayConcat(arr) {
+//     arr = [4].concat(arr)
+//     console.log(arr)
+// }
+// let array = [1,2,3]
+// arrayConcat(array)
+
+
+
+
+// 74.
+//  Remove Duplicates From Array
+// Example 1: Using indexOf() and push()
+// function removeArray(arr) {
+//     uniqueArr = [];
+//     for (let i of arr) {
+//         if (uniqueArr.indexOf(i) === -1) {
+//             uniqueArr.push(i);
+//         }
+//     }
+//     console.log(uniqueArr)
+// }
+// let array = [1,2,3,4,2,3]
+// removeArray(array)
+
+//Example 2: Using Set
+// function arraySet(arr) {
+//     let uniqueArr = [...new Set(arr)]  //ถ้าคุณเอา ... (spread operator) ออก และเขียนแค่ let uniqueArr = new Set(arr) อาจจะไม่เห็นข้อมูลใน object เพราะว่า Set ไม่ใช่อาร์เรย์
+//     console.log(uniqueArr)
+// }
+// let array = [1,2,3,4,5,2,3]
+// arraySet(array)
+
+
+
+
+// 75.
+// Merge Two Arrays and Remove Duplicate Items
+// Example 1: Using concat() and for Loop
+// function getUniqueAfterMerge(arr1, arr2) {
+//     let arr = arr1.concat(arr2);    // เอา พารามิตเต้อของ array มารวมกันโดยใช้ concat
+//     let uniArray = [];              // สร้าง ตัวแปรมารับ array เปล่าไว้
+
+//     for (let i of arr) {                            // และให้ใช้ตัวแปร i วนลูป arr เข้าไป
+//         if (uniArray.indexOf(i) === -1) {           // ถ้าไม่มี element อยู่ใน array จะส่งกลับมา -1
+//             uniArray.push(i);                       // และ push ข้อมูลเข้า uniarray
+//         }
+//     }
+//     console.log(uniArray)
+// }
+// let array1 = [1,2,3,4]
+// let array2 = [2,3,5]
+// getUniqueAfterMerge(array1, array2)
+
+// Example 2: Using Spread Syntax and Set
+// function arraySet(arr1,arr2) {
+//     let arr = [...arr1, ...arr2]
+//     let uniqueArr = [...new Set(arr)]
+//     console.log(uniqueArr)
+// }
+// let array1 = [1,2,3,4]
+// let array2 = [2,3,5]
+// arraySet(array1, array2)
+
+
+
+// 76.   พารมิเต้อ a และ b คือการสร้างตัวแปรมารับให้เกิดการเปรียบเทียบในชุดข้อมูล
+// Sort Array of Objects by Property Values
+// Example 1: Sort Array by Property Name    ไม่ค่อยเข้าใจ
+// function compareName(a,b) {
+//     const name1 = a.name.toUpperCase()
+//     const name2 = b.name.toUpperCase()
+//     let comparison = 0;
+//     if (name1 > name2) {
+//         comparison = 1;
+//     }
+//     else if ( name1 < name2) {
+//         comparison = -1;
+//     }
+//     return comparison;
+// }
+// const students = [{name: 'Sara', age:24},{name: 'John', age:24}, {name: 'Jack', age:25}];
+// console.log(students.sort(compareName));
+
+
+// Example 2: Sort Array by Property Age
+// function arraySortAge(a,b) {
+//     return a.age - b.age
+// }
+// const students = [{name: 'Sara', age:27},{name: 'John', age:25}, {name: 'Jack', age:26}];
+// console.log(students.sort(arraySortAge));
+
+
+
+// 77.
+// Create Two Dimensional Array
+// function arrayTwoDimensional(a, b) {
+//     let arr = []
+//     for (let i = 0; i < a; i++) {
+//         for (let j = 0; j < b; j++) {
+//             arr[i] = [];
+//         }                               // for นี้ใช้สร้าง array และ sub array
+//     }
+//     for (let i = 0; i < a; i++) {
+//         for (let j = 0; j < b; j++) {
+//             arr[i][j] = j;
+//         }                               // insert ข้อมูลลงไปใน array ทีละตัว
+//     }
+//     return arr;
+// }
+// const x = 2;
+// const y = 3;
+// const result = arrayTwoDimensional(x, y)
+// console.log(result)
+
+
+
+
+// 78.
+// Extract Given Property Values from Objects as Array
+//Example 1: Extract Value Using map()
+// function extractValue(arr, prop) {
+//     let extractedValue = arr.map(item => item[prop])     บรรทัดนี้เราใช้ map() เพื่อสร้างอาร์เรย์ใหม่ extractedValue โดยใช้ฟังก์ชันของ map ในการดำเนินการกับแต่ละอิลิเมนต์ item ในอาร์เรย์
+//     return extractedValue;                               arr. ในทุก ๆ รอบของ map, เราดึงค่าของคุณสมบัติ prop จาก item โดยใช้ item[prop] และนำค่านั้นมาเก็บใน extractedValue.
+// }
+// const objArray = [{a: 1, b: 2}, {a: 4, b: 5}, {a: 8, b: 9}];
+// const result = extractValue(objArray, 'a')
+// console.log(result)
+
+//Example 2: Extract Value Using for Loop
+// function extractValueLoop(arr, prop) {
+//     let extractedValue = [];
+//     for (let i = 0; i < arr.length; i++) {
+//         extractedValue.push(arr[i][prop])       รับค่าจาก พารามิตเต้อและสังกลับไปใน array ชื่อ extractedValue
+//     }
+//     return extractedValue;                      และส่งค่ากลับไป
+// }
+// const objArray = [{ a: 1, b: 2 }, { a: 4, b: 5 }, { a: 8, b: 9 }];
+// const result = extractValueLoop(objArray, 'a')
+// console.log(result)
+
+
+
+
+// 79.
+// Compare Elements of Two Arrays
+// Example 1 : Compare Arrays Using JSON.stringify()    การเปรียบเทียบค่าใน array 2อันว่าตรงกันมั้ย
+// function comPareArray(arr1, arr2) {
+//     let result = JSON.stringify(arr1) == JSON.stringify(arr2)
+//     if (result) {
+//         console.log('The arrays have the same elements.');
+//     }
+//     else {
+//         console.log('The arrays have different elements.');
+//     }
+// }
+// const array1 = [1,2,3,4,6]
+// const array2 = [1,2,3,4,5]
+// comPareArray(array1,array2)
+
+
+// Example 2: Compare Arrays using for Loop
+// function comPareArray(arr1, arr2) {
+//     if (arr1.length != arr2.length) {
+//         return false;
+//     }
+//     else {
+//         let result = false;  //หากไม่มีการตั้งค่า result เริ่มต้นเป็น false, ในกรณีที่อาร์เรย์ arr1 และ arr2 มีขนาดเท่ากันและมีค่าที่ตรงกันทุกอิลิเมนต์ ตัวแปร result จะไม่ถูกอัพเดทเป็น true และฟังก์ชันจะคืนค่า false ตามค่าเริ่มต้น.
+//         for (let i = 0; i < arr1.length; i++) {
+//             if (arr1[i] != arr2[i]) {
+//                 return false;
+//             }
+//             else {
+//                 result = true;
+//             }
+//         }
+//         return result;
+//     }
+// }
+// const array1 = [1, 3, 5, 8];
+// const array2 = [1, 3, 5, 8];
+// const result = comPareArray(array1, array2)
+// if (result) {
+//     console.log('The arrays have the same elements. ')
+// }
+// else {
+//     console.log('The arrays have different elements.');
+// }
+
+
+
+
+// 80.
+// Example: Get Random Item From an Array
+// function randomItemArray(arr) {
+//     const randomIndex = Math.floor(Math.random() * arr.length);
+//     const item = arr[randomIndex]
+//     return item;
+// }
+// const array = [1,2,3,'HoHo',4,5,6]
+// const result1 = randomItemArray(array)
+// const result2 = randomItemArray(array)
+// console.log(result1)
+// console.log(result2)
+
+
+
+// 81.
+// Intersection Between Two Arrays
+// Example 1: Perform Intersection Using Set
+// function interSectionSet(arr1, arr2) {
+//     const setA = new Set(arr1)
+//     const setB = new Set(arr2)
+//     let interArray = []
+//     for ( let i of setB) {
+//         if (setA.has(i)) {
+//             interArray.push(i)
+//         }
+//     }
+//     return interArray;
+// }
+// const array1 = [1,2,3,5,9]
+// const array2 = [1,3,5,8]
+// const result = interSectionSet(array1,array2)
+// console.log(result)
+
+
+// Example 2: Perform Intersection Using filter() Method
+// function interSecFilter(arr1,arr2) {
+//     const result = arr1.filter(x => arr2.indexOf(x) !== -1) 
+//     return result
+// }
+// const array1 = [1,2,3,5,9]
+// const array2 = [1,3,5,8,9]
+// const result = interSecFilter(array1,array2)
+// console.log(result)
+
+
+// 82.
+// Split Array into Smaller Chunks
+// Example 1: Split Array Using slice()
+// function arraySlice(arr1, chunk) {
+//     for (let i = 0; i < arr1.length; i += chunk) {
+//         let teamArray;
+//         teamArray = arr1.slice(i, i + chunk)
+//         console.log(teamArray)
+//     }
+// }
+// const array1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// const chunks = 2;
+// arraySlice(array1, chunks)
+
+// Example 2: Split Array Using splice()
+// function splitArray(arr, chunk) {
+//     while (arr.length > 0) {
+//         let teamArray;
+//         teamArray = arr.splice(0,chunk)
+//         console.log(teamArray)
+//     }
+// }
+// const array = [1, 2, 3, 4, 5, 6, 7, 8];
+// const chunk = 2;
+// splitArray(array, chunk);
+
+
+// 83.
+// Include a JS file in Another JS file
+// const name = 'First'
+// const number = 10
+// function plus( a,b) {
+//     return a + b;
+// }
+// export { name, number, plus};
+
+
+// 84.
+// Get File Extension
+// function fileExtension(filename) {
+//     const extenSin = filename.split('.').pop()  // .split('.')จะแยกส่วนที่ . ออกจากกัน      องค์ประกอบอาร์เรย์สุดท้ายซึ่งเป็นส่วนขยายจะถูกส่งกลับโดยใช้เมธอด pop()
+//     return extenSion
+// }
+// const result1 = fileExtension('module.js')
+// console.log(result1)
+// const result2 = fileExtension('index.tmt')
+// console.log(result2)
+
+// Example 2: Using substring() and lastIndexOf()           //ไม่ค่อยเข้าใจ
+// function subString(filename) {
+//     const extenSin = filename.substring(filename.lastIndexOf('.') + 1, filename.length )
+//     return extenSin
+// }
+// const result1 = subString('module.js')
+// console.log(result1)
+// const result2 = subString('index.tmt')
+// console.log(result2)
+
+
+// 85.
+// Check If A Variable Is undefined or null
+// Example 1: Check undefined or null
+// function checkUndefined(variable) {
+//     if (variable == null) {
+//         console.log('The variable is undefined or null')
+//     }
+//     else {
+//         console.log('The variable is neither undefined nor null')
+//     }
+// }
+// let array;
+// checkUndefined(5);
+// checkUndefined('hello');
+// checkUndefined(null);
+// checkUndefined(array);
+
+//Example 2: using typeof  //Note: We cannot use the typeof operator for null as it returns object.
+// function checkUndefined(variable) {
+//     if (typeof variable === 'undefined' || variable == null) {
+//         console.log('The variable is undefined or null')
+//     }
+//     else {
+//         console.log('The variable is neither undefined nor null')
+//     }
+// }
+// let array;
+// checkUndefined(5);
+// checkUndefined('hello');
+// checkUndefined(null);
+// checkUndefined(array);
+
+
+// 86.
+// Set a Default Parameter Value For a Function
+// Example 1: Set Default Parameter Value For a Function
+// function sumNumber(x=3,y=5) {
+//     return x + y;
+// }
+// console.log(sumNumber())
+// console.log(sumNumber(5,5))
+// console.log(sumNumber(7))  ถ้าใส่ผลบวกตัวเดียวมันจะอ้างอิงตำแหน่ง 7 ตัวนี้แทนในส่วนของ x เลยเป็น 7 + 5 = 12
+
+//Example 2: Using Previous Parameter in Another Parameter
+// let Calculation = function(x = 5, y = x-3) {
+//     return x+y;
+// }
+// const result1 = Calculation(10)
+// console.log(result1);
+// const result2 = Calculation()
+// console.log(result2);
+
+
+// 87.
+// llustrate Different Set Operations
+// Example 1: Set Union Operation
+// function setUnion(a,b) {
+//     const newarray = new Set(a);
+//     for (let i of b) {
+//         newarray.add(i);
+//     }
+//     return newarray;
+// }
+// const setA = new Set(['apple','mango','tomato'])
+// const setB = new Set(['apple','mango','banana'])
+// const result = setUnion(setA, setB)
+// console.log(result)
+
+
+// Example 2: Set Intersection Operation
+// function intersec(seta, setb) {
+//     const newarray = new Set();
+//     for (let i of setb) {
+//         if (seta.has(i)) {
+//             newarray.add(i);
+//         }
+//     }
+//     return newarray;
+// }
+// const setA = new Set(['apple', 'mango', 'tomato'])
+// const setB = new Set(['apple', 'mango', 'banana'])
+// const result = intersec(setA, setB)
+// console.log(result)
+
+// Example 3: Set Difference Operation
+// function difference(seta, setb) {
+//     const differenceSet = new Set(seta);
+//     for (let i of setb) {
+//         differenceSet.delete(i)   // ในบรรทัดที่ 3-5, ฟังก์ชันวนลูปผ่านทุก ๆ อิลิเมนต์ใน setB โดยใช้ for...of และลบทุกอิลิเมนต์ใน differenceSet ที่มีค่าเท่ากับอิลิเมนต์ใน setB โดยใช้ differenceSet.delete(i).
+//     }
+//     return differenceSet;
+// }
+// const setA = new Set(['apple', 'mango', 'tomato'])
+// const setB = new Set(['apple', 'mango', 'banana'])
+// const result = difference(setA, setB)
+// console.log(result)
+
+// Example 4: Set Subset Operation
+// function subset(seta, setb) {
+//     for (let i of setb) {   // i มีค่าของ setb ทั้งหมดเลย
+//         if (!seta.has(i)) {   //โค้ดนี้กำลังตรวจสอบว่า seta มีอิลิเมนต์ i หรือไม่ ถ้า i ไม่อยู่ใน seta (หมายถึง .has(i) คืนค่า false) แล้วคำสั่ง return false; จะถูกเรียก ซึ่งหมายถึงฟังก์ชัน subset(seta, setb) จะคืนค่า false และสิ้นสุดการทำงาน
+//             return false;
+//         }
+//         return true;
+//     }
+// }
+// const setA = new Set(['apple', 'mango', 'orange']);
+// const setB = new Set(['apple', 'orange']);
+// const result = subset(setA, setB);
+// console.log(result);
+
+
+// 88.
+//Example: Integer Value Between Two Numbers
+// const min = parseInt(prompt("Enter a min value: "));
+// const max = parseInt(prompt("Enter a max value: "));             // Math.random มันจะไม่รวมตัวมันเอง
+// const a = Math.floor(Math.random() * (max - min + 1)) + min ;    + min เพื่อให้มันสุ่มถึงค่าที่คนใส่เข้ามา 20-10+1 จะได้ 11 แต่เราต้องการสุ่ม 10-20 เลยต้องบวกค่า min ตามไป
+// console.log(`Random value between ${min} and ${max} is ${a}`);
+
+
+// 89.
+// Get The Current URL
+// program to get the URL
+// const url1 = window.location.href;
+// const url2 = document.URL;
+// console.log(url1);
+// console.log(url2);
+
+
+// 90.   ในส่วนของ regex ยังไม่เข้าใจในสัญลัก
+// Validate An Email Address
+// Example: Using Regex
+// function validateEmail(email_id) {
+//     const regex_pattern =      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    
+//     if (regex_pattern.test(email_id)) {
+//         console.log('The email address is valid');
+//     }
+//     else {
+//         console.log('The email address is not valid');
+//     }
+// }
+
+// validateEmail('abc123@gmail.com');
+// validateEmail('hello@com');
