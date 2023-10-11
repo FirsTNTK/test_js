@@ -2145,7 +2145,7 @@
 // Example: Using Regex
 // function validateEmail(email_id) {
 //     const regex_pattern =      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    
+
 //     if (regex_pattern.test(email_id)) {
 //         console.log('The email address is valid');
 //     }
@@ -2156,3 +2156,434 @@
 
 // validateEmail('abc123@gmail.com');
 // validateEmail('hello@com');
+
+
+
+// 91.
+//  Check If a Variable is of Function Type
+// Example 1: Using instanceof Operator
+// function checkType(variable) {
+//     if ( variable instanceof Function) {
+//         console.log('The variable is of function type')
+//     }
+//     else {
+//         console.log('The variable is not of function type')
+//     }
+// }
+// const count = true;
+// let x = function() {
+//     console.log('hello')
+// }
+// checkType(count);
+// checkType(x);
+
+
+
+// Example 2: Using typeof Operator
+// function checkType(variable) {
+//     if (typeof variable === 'function') {
+//         console.log('The variable is of function type')
+//     }
+//     else {
+//         console.log('The variable is not of function type')
+//     }
+// }
+// const count = true;
+// let x = function () {
+//     console.log('hello')
+// }
+// checkType(count);
+// checkType(x);
+
+
+// Example 3: Using Object.prototype.toString.call() Method   ส่งกลับไปในรูปแบบ string ระบุว่า เป็น object แบบไหน
+// function testVariable(variable) {
+
+//     if(Object.prototype.toString.call(variable) == '[object Function]') {
+//         console.log('The variable is of function type');
+//     }
+//     else {
+//         console.log('The variable is not of function type');
+//     }
+// }
+
+// const count = true;
+// const x = function() {
+//     console.log('hello')
+// };
+
+// testVariable(count);
+// testVariable(x);
+
+
+
+
+
+// 92.
+// Program To Work With Constants
+// Example: Work With Constants
+// const a = 5;
+// console.log(a);
+
+// // block scope
+// {
+//     const a = 50;
+//     console.log(a);
+// }
+// console.log(a);
+
+
+// const arr = ["work", "exercise", "eat"]
+// console.log(arr);
+
+
+// arr[3] = "sleep";
+// console.log(arr);
+
+
+
+
+// 93.
+// Pass Parameter to a setTimeout() Function
+// Example 1: Passing Parameter to setTimeout
+// function greet() {
+//     console.log('Hello world')
+// }
+// setTimeout(greet, 3000)
+// console.log('This message is shown first')
+
+
+
+// Example 2: Passing Parameter to Function
+// function greet(x,y) {
+//     console.log(x)
+//     console.log(y)
+// }
+// setTimeout(greet,3000,'hello','world')
+// console.log('This message is shown first')
+
+
+
+// 94.
+// Example: Generate Range of Characters
+// function* iterate (a,b) {
+//     for(let i = a; i <= b; i += 1) {
+//         yield i
+//     }
+// }
+
+// function range(a,b) {
+//     if (typeof a === 'string' ) {
+//         let result = [...iterate(a.charCodeAt(), b.charCodeAt())].map(n => String.fromCharCode(n));
+//         console.log(result)
+//     }
+//     else {
+//         let result = [...iterate(a,b)];
+//         console.log(result)
+//     }
+// }
+// const result1 = range(1,5)
+// const result2 = range('A', 'G')
+
+
+
+// 95.
+// Perform Function Overloading
+// Example 1: Using if/else-if Statement
+// function sum() {
+//     if(arguments.length == 0) {
+//         console.log('You have not passed any argument')
+
+//     }
+//     else if (arguments.length == 1) {
+//         console.log('Pass at least two arguments')
+//     }
+//     else {
+//         let result = 0
+//         let length = arguments.length;
+
+//         for (i = 0; i < length; i++) {
+//             result = result + arguments[i];
+//         }
+//         console.log(result)
+//     }
+// }
+// sum();
+// sum(5)
+// sum(5,9)
+// sum(1,2,3,4,5,6,7,8,9)
+
+
+
+// Example 2: Using switch Statement
+// function sum() {
+//     switch ( arguments.length) {
+//         case 0:
+//             console.log('You have not passed any argument')
+//             break;
+//         case 1:
+//             console.log('You have not passed any argument')
+//             break;
+//         default:
+//             let result = 0
+//             let length = arguments.length;
+
+//             for ( i = 0; i < length; i++) {
+//                 result = result + arguments[i]
+//             }
+//             console.log(result)
+//             break;
+//     }
+// }
+// sum();
+// sum(5)
+// sum(5,9)
+// sum(1,2,3,4,5,6,7,8,9)
+
+
+
+
+
+// 96.
+// Example: Implement Stack
+// class Stack {
+//     constructor() {
+//         this.items = [];
+//     }
+//     add(element) {
+//         return this.items.push(element)
+//     }
+//     remove() {
+//         if (this.items.length > 0) {
+//             return this.items.pop();
+//         }
+//     }
+
+//     peek() {
+//         return this.items[this.items.length - 1]
+//     }
+
+//     isEmpty() {
+//         return this.items.length == 0;
+//     }
+//     size() {
+//         return this.items.length
+//     }
+//     clear() {
+//         this.items = []
+//     }
+// }
+
+
+// let stack = new Stack();
+// stack.add(1);
+// stack.add(2);
+// stack.add(4);
+// stack.add(8);
+// console.log(stack.items);
+
+
+// stack.remove();
+// console.log(stack.items)
+// console.log(stack.peek())
+// console.log(stack.isEmpty())
+// console.log(stack.size())
+
+// stack.clear()
+// console.log(stack.items)
+
+
+
+
+// 97.   ข้ามก่อนนะครับไม่เข้าใจ
+// Implement a Queue
+// program to implement queue data structure
+// class Queue {
+//     constructor() {
+//         this.items = {};
+//         this.headIndex = 0;
+//         this.tailIndex = 0;
+//     }
+
+//     //adds a new element
+//     enqueue(element) {
+//         this.items[this.tailIndex] = element;
+//         this.tailIndex++;
+//     }
+
+//     //removes an element from head of the queue
+//     dequeue() {
+//         let removedElement = this.items[this.headIndex];
+//         delete this.items[this.headIndex];
+//         this.headIndex++;
+//         return removedElement;
+//     }
+
+//     //shows the head element of the  queue
+//     peek() {
+//         let peekElement = this.items[this.headIndex];
+//         return peekElement;
+//     }
+
+//     //shows the number of items in queue
+//     size() {
+//         return this.tailIndex - this.headIndex;
+//     }
+
+//     //checks if queue is empty or not
+//     isEmpty() {
+//         if (this.tailIndex - this.headIndex == 0) {
+//             return true;
+//         }
+//         else {
+//             return false;
+//         }
+//     }
+
+//     //empty the queue
+//     clear() {
+//         this.items = {};
+//         this.headIndex = 0;
+//         this.tailIndex = 0;
+//     }
+// }
+// let queue = new Queue();
+
+// // add items to queue
+// queue.enqueue(8);
+// queue.enqueue(6);
+// queue.enqueue(4);
+// queue.enqueue(2);
+
+// console.log("Queue after adding items: ");
+// console.log(queue.items);
+
+// // remove the first item
+// queue.dequeue();
+
+// console.log("Queue after deleting the first item:");
+// console.log(queue.items);
+
+// // show the first item
+// console.log("First item of the queue = " + queue.peek());
+
+// // empty the queue
+// queue.clear();
+
+// console.log("After clearing the queue: ");
+// console.log(queue.items);
+
+
+
+
+
+// 98.
+// Check if a Number is Float or Integer
+// Example 1: Using Number.isInteger()
+// function checkNumber(x) {
+//     if (typeof x == 'number' && !isNaN(x)) {
+//         if (Number.isInteger(x)) {
+//             console.log(`${x} is integer.`)
+//         }
+//         else {
+//             console.log(`${x} is a float value.`);
+//         }
+//     }
+//     else {
+//         console.log(`${x} is not a number`)
+//     }
+// }
+
+// checkNumber('hello')
+// checkNumber(44)
+// checkNumber(3.4)
+// checkNumber(-3.4)
+// checkNumber(NaN)
+
+
+
+
+// 99.
+// Example: Function as Parameter
+// function greet() {
+//     return 'hello'
+// }
+
+// function name (user, func) {
+//     const message = func();
+//     console.log(`${message} ${user}`)
+// }
+
+// name('Jame', greet);
+
+
+
+// 100.
+// Get the Dimensions of an Image
+// const img = new Image();
+
+// img.src = '//cdn.programiz.com/sites/tutorial2program/files/cover-artwork.png'
+
+// img.onload = function () {
+//     console.log('width' + this.width)
+//     console.log('height' + this.height)
+// }
+
+
+
+
+// 101.
+// Remove All Whitespaces From a Text
+// Example 1: Using split() and join()
+// const string = '                Hello World                 '
+// const result = string.split(' ').join('');
+// console.log(result)
+
+
+// Example 2: Using Regular Expression              ยังไม่ค่อยเข้าใจว่าการใช้สัญลักแทนต้องใช้ตัวอะไร
+// function trimString(x) {
+//     const result = x.replace(/\s/g,'');
+//     return result
+// }
+// const result = trimString('      Hello World        ')
+// console.log(result)
+
+
+
+
+
+// 102.
+// Write to Console
+// console.log(9)
+
+// console.log('hello')
+
+// const x = 'hello'
+// console.log(x)
+
+// function sayName() {
+//     return 'Hello Jame'
+// }
+// console.log(sayName())
+
+// const name = 'Jame'
+// console.log('Hello ' + name )
+
+// let obj = {
+//     name: 'Jame',
+//     age: 20
+// }
+// console.log(obj)
+
+
+
+
+
+// 103.
+// Example: Convert Date to Number
+const d1 = new Date();
+console.log(d1)
+
+
+const result = d1.getTime();
+console.log(result)
